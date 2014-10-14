@@ -3,16 +3,22 @@
 from flask import Flask
 
 #create the application object
-app = Flask(__name__)
+webapp = Flask(__name__)
 
-#use decorators to link the function to a url
-@app.route("/")
-@app.route("/hello")
+@webapp.route("/")	#use decorators to link the function to a url
+def index():
+	return """
+	This is the index page or ROOT of your webserver,
+	rather than returning this text you could import from flask
+	"render_template", and use an actual html index.html page ;).
+	this is how you do it ;)
 
-#define the view using a function, which returns a string
-def hello_world():
-	return "Hello World"
+	"""
+
+
+#dynamic route
+
 
 #start the development server using the run() method
 if __name__ == "__main__":
-	app.run()
+	webapp.run()
