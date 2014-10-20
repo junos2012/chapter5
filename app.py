@@ -1,24 +1,16 @@
-#----Flask Hello World ----#
-# Import the flask class from the flask module
+#flask work 
+
+#import the flask module.
 from flask import Flask
 
 #create the application object
-webapp = Flask(__name__)
+app = Flask(__name__)
 
-@webapp.route("/")	#use decorators to link the function to a url
-def index():
-	return """
-	This is the index page or ROOT of your webserver,
-	rather than returning this text you could import from flask
-	"render_template", and use an actual html index.html page ;).
-	this is how you do it ;)
+#use decorators to link the function to a url 
+@app.route("/")
+def hello_world():
+	return "Hello world"
 
-	"""
-
-
-#dynamic route
-
-
-#start the development server using the run() method
-if __name__ == "__main__":
-	webapp.run()
+#run the application, *Never leave debug=True on with a live server.*
+if __name__ == ("__main__"):
+	app.run(debug=True)
